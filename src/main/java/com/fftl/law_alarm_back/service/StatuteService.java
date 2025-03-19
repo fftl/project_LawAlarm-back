@@ -1,15 +1,12 @@
 package com.fftl.law_alarm_back.service;
 
+import com.fftl.law_alarm_back.repository.StatuteRepository;
+
 public class StatuteService {
 
-    private StatuteService statuteService;
+    private StatuteRepository statuteRepository;
 
-    public StatuteService(StatuteService statuteService) {
-        this.statuteService = statuteService;
+    public StatuteService(StatuteRepository statuteRepository) {
+        this.statuteRepository = statuteRepository;
     }
-
-    public int addStatute(){
-        return 0;
-    }
-
 }
