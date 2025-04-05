@@ -44,22 +44,22 @@ public class DataApiTest {
 
             NodeList lawNodes = doc.getElementsByTagName("law");
 
-//            for (int i = 0; i < lawNodes.getLength(); i++) {
-//                Node node = lawNodes.item(i);
-//
-//                if (node.getNodeType() == Node.ELEMENT_NODE) {
-//                    Element element = (Element) node;
-//                    Statute statute = new Statute();
-//                    statute.
-//                }
-//            }
-//
-//            // name, age 값 추출
-//            int totalCnt = Integer.parseInt(root.getElementsByTagName("totalCnt").item(0).getTextContent());
-//            int nowCnt = Integer.parseInt(root.getElementsByTagName("numOfRows").item(0).getTextContent());
-//            String resultMsg = root.getElementsByTagName("resultMsg").item(0).getTextContent();
-//
-//            log.info("totalCnt: {}", totalCnt);
+            for (int i = 0; i < lawNodes.getLength(); i++) {
+                Node node = lawNodes.item(i);
+
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    Statute statute = new Statute();
+                    statute.
+                }
+            }
+
+            // name, age 값 추출
+            int totalCnt = Integer.parseInt(root.getElementsByTagName("totalCnt").item(0).getTextContent());
+            int nowCnt = Integer.parseInt(root.getElementsByTagName("numOfRows").item(0).getTextContent());
+            String resultMsg = root.getElementsByTagName("resultMsg").item(0).getTextContent();
+
+            log.info("totalCnt: {}", totalCnt);
 //            System.out.println("나이: " + age);
         } catch (Exception e) {
             e.printStackTrace();

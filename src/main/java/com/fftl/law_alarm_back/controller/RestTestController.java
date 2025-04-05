@@ -16,9 +16,4 @@ public class RestTestController {
     public String test(){
         return dataApiTest.getData();
     }
-
-    @GetMapping("/data")
-    public String run() {
-        return "hello dongmin";
-    }
 }
