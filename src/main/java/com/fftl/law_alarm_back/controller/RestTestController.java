@@ -16,4 +16,9 @@ public class RestTestController {
     public String test(){
         return dataApiTest.getData();
     }
+
+    @GetMapping("/data")
+    public String data(){
+        return "spring boot : connect success";
+    }
 }
