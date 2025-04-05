@@ -1,19 +1,17 @@
 #spring.application.name=law-alarm-back
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/lee?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://140.245.73.188:3306/law_alarm?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: fftl
+    password: law_alarm_password
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MariaDBDialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
-
-
