@@ -1,8 +1,7 @@
 package com.fftl.law_alarm_back.controller;
 
-import com.fftl.law_alarm_back.service.DataApiTest;
+import com.fftl.law_alarm_back.service.GetLawData;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestTestController {
 
-    private final DataApiTest dataApiTest;
+    private final GetLawData getLawData;
 
     @GetMapping("/lee")
     public String test(){
-        return dataApiTest.getData();
+        return getLawData.getData();
     }
 
     @GetMapping("/data")
