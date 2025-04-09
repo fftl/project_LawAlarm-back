@@ -13,8 +13,10 @@ public class RestTestController {
 
     @GetMapping("/lee")
     public String test(){
-        return getLawData.getData();
+//        return getLawData.getData();
+        return "test";
     }
+
 
     @GetMapping("/data")
     public String data(){
