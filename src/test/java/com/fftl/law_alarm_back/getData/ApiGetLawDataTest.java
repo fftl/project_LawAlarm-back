@@ -20,7 +20,7 @@ class ApiGetLawDataTest {
         Properties props = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties")) {
             props.load(input);
-        }\
+        }
 
         String lawKey = props.getProperty("law.key");
         String BASE_URL = props.getProperty("law.base-url");
