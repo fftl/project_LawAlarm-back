@@ -1,24 +1,26 @@
-package com.fftl.law_alarm_back.getData;
+package com.fftl.law_alarm_back.api.service;
 
+import com.fftl.law_alarm_back.api.dto.LawSearchResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @Service
-public class ApiGetLawData {
+public class ApiLawService {
 
     private final String lawKey;
     private final String BASE_URL;
 
-    public ApiGetLawData(@Value("${law.key}")String lawKey, @Value("${law.base-url}")String BASE_URL) {
+    public ApiLawService(@Value("${law.key}") String lawKey, @Value("${law.base-url}") String baseUrl) {
         this.lawKey = lawKey;
-        this.BASE_URL = BASE_URL;
+        BASE_URL = baseUrl;
     }
 
-    public String getData(){
+    public LawSearchResponse getData(){
         WebClient client = WebClient.builder().baseUrl(BASE_URL).build();
 
         String search = "소방";
@@ -28,14 +30,11 @@ public class ApiGetLawData {
                 .append("&target=eflaw&type=json&nw=2&query=") //검색 인자
                 .append(search); //검색어
 
-        log.info("uri = {}", uri);
-
-        String jsonData = client.post()
+        Mono<LawSearchResponse> response = client.get()
                 .uri(uri.toString())
                 .retrieve()
-                .bodyToMono(String.class)
-                .block();
+                .bodyToMono(LawSearchResponse.class);
 
-        return jsonData;
+        return response.block();
     }
 }

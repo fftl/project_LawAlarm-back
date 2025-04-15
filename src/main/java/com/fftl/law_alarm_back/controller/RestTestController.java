@@ -1,6 +1,6 @@
 package com.fftl.law_alarm_back.controller;
 
-import com.fftl.law_alarm_back.getData.ApiGetLawData;
+import com.fftl.law_alarm_back.api.service.ApiLawService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestTestController {
 
-    private final ApiGetLawData getLawData;
+    private final ApiLawService getLawData;
 
     @GetMapping("/lee")
     public String test(){

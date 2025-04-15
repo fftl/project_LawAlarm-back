@@ -35,5 +35,5 @@ public class Statute {
     private StatuteCategory statuteCategory;
 
     @OneToMany(mappedBy = "statute")
-    private List<StatuteDepartment> statuteDepartmentList = new ArrayList<>();
+    private final List<StatuteDepartment> statuteDepartmentList = new ArrayList<>();
 }
