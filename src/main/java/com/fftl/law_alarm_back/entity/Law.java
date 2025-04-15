@@ -15,15 +15,20 @@ import java.util.List;
 @Getter
 @Builder
 @Entity
-public class Statute {
+@Table(name = "laws")
+public class Law {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long statuteId;
-    private String statuteSerial;
-    private String statuteName;
-    private String statuteNickname;
-    private String statuteCode;
+    private Long lawId;
+
+    //법령일련번호
+    private String lawSerial;
+
+    //법령명한글
+    private String lawName;
+
+    //
     private LocalDateTime proclaimDate;
     private String proclaimNum;
     private int revisionStatus;
@@ -31,8 +36,8 @@ public class Statute {
     private String statuteLink;
 
     @ManyToOne
-    @JoinColumn(name = "statute_category_id")
-    private StatuteCategory statuteCategory;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @OneToMany(mappedBy = "statute")
     private final List<StatuteDepartment> statuteDepartmentList = new ArrayList<>();

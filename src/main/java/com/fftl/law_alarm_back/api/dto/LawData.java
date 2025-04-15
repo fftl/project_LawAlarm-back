@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class Law {
+public class LawData {
 
     @JsonProperty("현행연혁코드")
     private String status; //"현행연혁코드": "시행예정",

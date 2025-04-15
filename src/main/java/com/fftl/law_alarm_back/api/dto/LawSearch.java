@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 public class LawSearch {
 
-    private List<Law> law;
+    private List<LawData> law;
     private String resultMsg;
 
     @JsonProperty("키워드")
