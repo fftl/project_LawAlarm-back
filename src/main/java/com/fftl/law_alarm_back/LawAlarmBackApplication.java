@@ -10,4 +10,9 @@ public class LawAlarmBackApplication {
 		SpringApplication.run(LawAlarmBackApplication.class, args);
 	}
 
+	/*
+	* TODO
+	* 	1. GOOGLE LOGIN 추가하기
+	* 	3. 소관부처 데이터 DB에 추가하기
+	* */
 }

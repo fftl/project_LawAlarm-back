@@ -15,12 +15,12 @@ import java.util.List;
 @Getter
 @Builder
 @Entity
-@Table(name = "laws")
-public class Law {
+@Table(name = "law")
+public class Law extends BaseTime{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long lawId;
+    private Long id;
 
     //법령일련번호
     private String lawSerial;
@@ -28,17 +28,36 @@ public class Law {
     //법령명한글
     private String lawName;
 
-    //
+    //법령명
+    private String lawData;
+
+    //공포 일자
     private LocalDateTime proclaimDate;
+
+    //공포 번호
     private String proclaimNum;
+
+    //재개정구분
     private int revisionStatus;
+
+    //시행일자
     private LocalDateTime enforcementDate;
-    private String statuteLink;
 
+    //법령링크
+    private String lawLink;
+
+    //최신여부
+    private LocalDateTime isLatest;
+
+    //소관부처IDs
+    @OneToMany(mappedBy = "law")
+    private List<LawDepartmentRelation> lawDepartments = new ArrayList<>();
+
+    //법령구분ID
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @JoinColumn(name = "law_type_id")
+    private LawType lawType;
 
-    @OneToMany(mappedBy = "statute")
-    private final List<StatuteDepartment> statuteDepartmentList = new ArrayList<>();
+    @OneToMany(mappedBy = "law")
+    private List<MemberAlarmHistory> memberAlarmHistories = new ArrayList<>();
 }

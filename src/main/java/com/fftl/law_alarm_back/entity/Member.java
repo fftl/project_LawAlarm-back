@@ -10,30 +10,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Entity
-public class User {
+public class Member extends BaseTime{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long userId;
+    @Column(name = "member_id")
+    private Long id;
 
-    @Column(name = "username", nullable = false)
+    @Column(nullable = false)
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "email")
     private String email;
 
     @Builder
-    public User(String username, String password){
+    public Member(String username, String password){
         this.username = username;
         this.password = password;
     }
 
     @Builder
-    public User(String username, String password, String email){
+    public Member(String username, String password, String email){
         this.username = username;
         this.password = password;
         this.email = email;

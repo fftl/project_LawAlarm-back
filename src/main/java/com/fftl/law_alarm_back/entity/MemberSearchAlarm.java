@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Entity
-public class StatuteDepartment {
+public class MemberSearchAlarm extends BaseTime{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long StatuteDepartmentId;
+    @Column(name = "member_search_alarm_id")
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "statute_id")
-    private Statute statute;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
+    private String text;
+
 }

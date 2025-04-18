@@ -17,14 +17,17 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name = "category")
-public class Category {
-
+@Table(name = "law_type")
+public class LawType extends BaseTime{
 
     @Id
-    private Long categoryId;
-    private String categoryName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "law_type_id")
+    private Long id;
 
-    @OneToMany(mappedBy = "statuteCategory")
-    private List<Law> lawList = new ArrayList<>();
+    //법령종류명
+    private String lawTypeName;
+
+    @OneToMany(mappedBy = "lawType")
+    private List<Law> laws = new ArrayList<>();
 }
