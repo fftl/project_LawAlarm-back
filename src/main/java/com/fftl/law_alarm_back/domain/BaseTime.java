@@ -1,10 +1,11 @@
-package com.fftl.law_alarm_back.entity;
+package com.fftl.law_alarm_back.domain;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,6 @@ public abstract class BaseTime {
     @CreatedDate
     private LocalDateTime regDate;
 
-    @LastModifiedBy
+    @LastModifiedDate
     private LocalDateTime modDate;
-
 }

@@ -1,4 +1,4 @@
-package com.fftl.law_alarm_back.entity;
+package com.fftl.law_alarm_back.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

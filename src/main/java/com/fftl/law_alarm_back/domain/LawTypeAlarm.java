@@ -1,4 +1,4 @@
-package com.fftl.law_alarm_back.entity;
+package com.fftl.law_alarm_back.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,18 +8,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Table(name = "law_type_alarm")
 @Entity
-public class MemberSearchAlarm extends BaseTime{
+public class LawTypeAlarm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_search_alarm_id")
+    @GeneratedValue
+    @Column(name = "law_type_alarm_id")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
 
-    private String text;
-
+    @ManyToOne
+    @JoinColumn(name = "law_type_id")
+    private LawType lawType;
 }
