@@ -17,7 +17,7 @@ public class ApiLawService {
 
     public ApiLawService(@Value("${law.key}") String lawKey, @Value("${law.base-url}") String baseUrl) {
         this.lawKey = lawKey;
-        BASE_URL = baseUrl;
+        this.BASE_URL = baseUrl;
     }
 
     public LawSearchResponse getData(){
