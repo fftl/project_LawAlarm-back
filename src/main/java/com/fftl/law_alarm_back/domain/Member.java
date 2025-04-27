@@ -18,23 +18,14 @@ public class Member extends BaseTime{
     private Long id;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
-    private String password;
-
     private String email;
 
-    @Builder
-    public Member(String username, String password){
-        this.username = username;
-        this.password = password;
-    }
+    @Column(nullable = false)
+    private String refresh;
 
     @Builder
-    public Member(String username, String password, String email){
-        this.username = username;
-        this.password = password;
+    public Member(String email, String refresh){
         this.email = email;
+        this.refresh = refresh;
     }
 }

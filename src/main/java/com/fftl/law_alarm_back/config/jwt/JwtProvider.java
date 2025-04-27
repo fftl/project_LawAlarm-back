@@ -42,7 +42,7 @@ public class JwtProvider {
     }
 
     //token으로부터 userId를 찾아냅니다.
-    public String getUserIdFromToken(String token) {
+    public String getEmailFromToken(String token) {
         Jws<Claims> parse = Jwts.parser()
                 .verifyWith(getSecretKey())
                 .build()
