@@ -16,12 +16,15 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long create(String email, String refresh){
-        Member saveMember = memberRepository.save(
-                Member.builder()
-                .email(email)
-                .refresh(refresh).build());
-        return saveMember.getId();
+    public Member create(String email){
+        return memberRepository.save(
+                Member.builder().email(email).build());
+    }
+
+    @Transactional
+    public Member updateRefresh(Member member, String refresh){
+        member.updateRefresh(refresh);
+        return memberRepository.save(member);
     }
 
     @Transactional

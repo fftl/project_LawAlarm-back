@@ -28,12 +28,20 @@ public class JwtProvider {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    public String generateToken(Long userId, Long email, Long time) {
+    public String createRefreshToken(Long memberId, String email){
+        return generateToken(memberId, email, refreshExpiration);
+    }
+
+    public String createAccessToken(Long memberId, String email){
+        return generateToken(memberId, email, accessExpiration);
+    }
+
+    public String generateToken(Long memberId, String email, Long expiration) {
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + time);
+        Date expiryDate = new Date(now.getTime() + expiration);
 
         return Jwts.builder()
-                .subject(userId.toString())
+                .subject(memberId.toString())
                 .claim("email", email)
                 .issuedAt(now)
                 .expiration(expiryDate)
@@ -41,7 +49,7 @@ public class JwtProvider {
                 .compact();
     }
 
-    //token으로부터 userId를 찾아냅니다.
+    //token으로부터 email을 찾아냅니다.
     public String getEmailFromToken(String token) {
         Jws<Claims> parse = Jwts.parser()
                 .verifyWith(getSecretKey())

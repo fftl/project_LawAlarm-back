@@ -20,12 +20,15 @@ public class Member extends BaseTime{
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String refresh;
 
     @Builder
-    public Member(String email, String refresh){
+    public Member(String email){
         this.email = email;
+    }
+
+    public void updateRefresh(String refresh){
         this.refresh = refresh;
     }
 }
